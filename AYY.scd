@@ -69,8 +69,9 @@ State(\ayy).initActions.add({
 		//LocalOut.ar((sig + SinOsc.ar(Rand(0.05, 0.07), Rand(0.0, 1.0), 0.2)) * env);
 
 		sig = sig * [1, 1] * env * amp.dbamp;
+		sig = LeakDC.ar(sig);
 		Out.ar(0, sig);
-//		Out.ar(10, sig);
+		Out.ar(10, sig);
 	}).addReplace;
 
 
